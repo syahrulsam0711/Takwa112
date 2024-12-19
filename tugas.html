@@ -11,9 +11,127 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <style>
-    #map {
+     #map {
         height: 500px;
-    }
+    }  
+        #sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  height: 100vh; /* Tinggi penuh */
+  overflow-y: auto; /* Scroll sidebar jika kontennya panjang */
+}
+
+.menu-content {
+  max-height: 200px; /* Atur tinggi maksimal */
+  overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi tinggi */
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+
+       #sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100%;
+    width: 300px;
+    background-color: #1f2937;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#sidebar.open {
+    right: 0;
+}
+
+#sidebarToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sidebarToggle:hover {
+    background-color: #059669;
+}
+
+    </style>
+</head>
+
+<body class="bg-gray-100 overflow-hidden">
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#daftar">Daftar Produk</a></li>
+            <li><a href="#detail">Detail</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#alamat">Alamat</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebarToggle">☰ Menu</button>
+
+    <!-- Navbar -->
+    <nav class="bg-green-900 p-4 shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="text-yellow-500 font-bold text-2xl">
+                <a href="#">Rahmat Ilahi</a>
+            </div>
+            <ul class="flex space-x-6 text-white">
+                <li><a href="#home" class="hover:text-yellow-400">Home</a></li>
+                <li><a href="#tentang" class="hover:text-yellow-400">Tentang</a></li>
+                <li><a href="#daftar" class="hover:text-yellow-400">Daftar</a></li>
+                <li><a href="#detail" class="hover:text-yellow-400">Detail</a></li>
+                <li><a href="#kontak" class="hover:text-yellow-400">Kontak</a></li>
+                <li><a href="#alamat" class="hover:text-yellow-400">Alamat</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative h-screen bg-green-800 content-center text-white py-20">
+            <div class="container mx-auto px-6 flex items-center justify-between">
+                <div class="w-1/2">
+                    <h1 class="text-4xl font-bold leading-tight mb-4">Selamat Datang di Website kami Penjualan Lobster dan Telur!</h1>
+                    <p class="text-lg">Kami menyediakan lobster segar dan telur berkualitas tinggi. Segera dapatkan produk terbaik dari kami.</p>
+                    <a href="https://wa.me/6282188883108?text=Saya Ingin Beli"
+                        class="inline-block mt-6 py-1.5 px-6 bg-yellow-500 text-white text-lg font-semibold rounded-lg hover:bg-yellow-600 transition duration-300">Beli</a>
+                    <a href="#tentang"
+                        class="inline-block mt-6 py-1 px-6 bg-transparent border-2 border-white text-white text-lg font-semibold rounded-lg hover:bg-yellow-500 transition duration-300">Jelajahi</a>
+                </div>
+                <div class="w-1/2">
+                    <img src="./gambar1.png" alt="Lobster" class="rounded-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Sections -->
+        <!-- Tentang, Daftar, Detail, etc. -->
+    </main>
+
+    <!-- Sidebar Toggle Script -->
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const sidebarToggle = document.getElementById("sidebarToggle");
+
+        sidebarToggle.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+        });
+    </script>
 </style>
 
 <body class="bg-gray-100 overflow-hidden">
